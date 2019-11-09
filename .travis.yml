@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t lmullennex/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true lmullennex/docker-react npm run test
